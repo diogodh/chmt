@@ -67,10 +67,12 @@
 </section>
 </form>
 
+$('#form1').attr('action', 'rotem3.html'); 
+
 <script>
 $('#form1').submit(function() {
    if ($('input:checkbox', this).length == $('input:checked', this).length ) {
-			$('#form1').attr('action', 'rotem2.html'); //vai para atx
+			$('#form1').attr('action', 'https://diogodh.hithub.io/rotem2.html'); //vai para atx
    
    } else {
             alert('Sem condições para avançar neste algoritmo!');
