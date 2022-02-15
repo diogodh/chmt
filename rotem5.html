@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Protocolo ROTEM</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<section class="py-2 header text-center text-black">
+    <div class="container pt-2">
+        <header>
+            <h1 class="display-4">Protocolo ROTEM</h1>
+            <p class="mb-1"></p>
+            <p></p>
+        </header>
+    </div>
+</section>
+
+<form id="form1" method="post">
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+                <div class="card-body p-4">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck1" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck1">A5<sub>EX</sub> &lt; 35 mm</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck2" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck2">A5<sub>FIB</sub> &lt; 9 mm</label>
+                            </div>
+                        </li>
+						<input id="submit" type="submit" class="btn btn-info" value="Continuar">
+                    </ul>
+                </div>  			
+            </div>
+        </div>
+    </div>
+</section>
+</form>
+
+<script>
+$('#form1').submit(function() {
+	if ($('input:checkbox', this).length == $('input:checked', this).length ) {
+			$('#form1').attr('action', 'rotem7.html'); // fim de linha, faz criop ou aconcetr fib
+   } else {
+			$('#form1').attr('action', 'rotem8.html');
+   }
+});
+</script>
+
+</body>
+</html>

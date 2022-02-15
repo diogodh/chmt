@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Protocolo ROTEM</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body>
+<section class="py-2 header text-center text-black">
+    <div class="container pt-2">
+        <header>
+            <h1 class="display-4">Protocolo ROTEM</h1>
+            <p class="mb-1">Departamento de Anestesiologia</p>
+            <p>CHMT</p>
+        </header>
+    </div>
+</section>
+
+<form id="form1" method="post">
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+                <div class="card-body p-4">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck1" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck1">Trauma</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck2" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck2">Temperatura > 35º C</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck3" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck3">pH > 7.3</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck4" type="checkbox">
+                                <label class="cursor-pointer  d-block custom-control-label" for="customCheck4">Ca <sup>2+</sup> > 1 mmol/L</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" id="customCheck5" type="checkbox">
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck5">Hb &ge; 7 g/dL</label>
+                            </div>
+                        </li>
+						<input id="submit" type="submit" class="btn btn-info" value="Continuar">
+                    </ul>
+                </div>  			
+            </div>
+        </div>
+    </div>
+</section>
+</form>
+
+<script>
+$('#form1').submit(function() {
+   if ($('input:checkbox', this).length == $('input:checked', this).length ) {
+			$('#form1').attr('action', 'rotem2.html'); //vai para atx
+   
+   } else {
+            alert('Sem condições para avançar neste algoritmo!');
+            return false;
+   }
+});
+</script>
+
+</body>
+</html>
