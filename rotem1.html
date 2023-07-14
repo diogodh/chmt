@@ -69,8 +69,8 @@
 
 <script>
 $('#form1').submit(function() {
-   if ($('input:checkbox', this).length == $('input:checked', this).length ) {
-			$('#form1').attr('action', 'rotem2.html'); //vai para atx
+   if ($('input:checkbox', this).length === $('input:checked', this).length ) {
+			window.location.href = 'rotem2.html'; // Redirect to rotem2.html
    
    } else {
             alert('Sem condições para avançar neste algoritmo!');
@@ -78,6 +78,7 @@ $('#form1').submit(function() {
    }
 });
 </script>
+
 
 </body>
 </html>
