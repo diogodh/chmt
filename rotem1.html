@@ -5,8 +5,6 @@
 	<title>Protocolo ROTEM</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 
 <body>
@@ -49,17 +47,17 @@
                         <li class="list-group-item">
                             <div class="custom-control custom-checkbox">
                                 <input class="custom-control-input" id="customCheck4" type="checkbox">
-                                <label class="cursor-pointer  d-block custom-control-label" for="customCheck4">Ca <sup>2+</sup> > 1 mmol/L</label>
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck4">Ca <sup>2+</sup> > 1 mmol/L</label>
                             </div>
                         </li>
                         <li class="list-group-item">
                             <div class="custom-control custom-checkbox">
                                 <input class="custom-control-input" id="customCheck5" type="checkbox">
-                                <label class="cursor-pointer d-block custom-control-label" for="customCheck5">Hb &ge; 7 g/dL</label>
+                                <label class="cursor-pointer d-block custom-control-label" for="customCheck5">Hb ≥ 7 g/dL</label>
                             </div>
                         </li>
-						<input id="submit" type="submit" class="btn btn-info" value="Continuar">
                     </ul>
+					<button type="submit" class="btn btn-info">Continuar</button>
                 </div>  			
             </div>
         </div>
@@ -68,17 +66,20 @@
 </form>
 
 <script>
-$('#form1').submit(function() {
-   if ($('input:checkbox', this).length === $('input:checked', this).length ) {
-			window.location.href = 'rotem2.html'; // Redirect to rotem2.html
-   
-   } else {
+$(document).ready(function() {
+    $('#form1').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+        var checkboxes = $('input:checkbox', this);
+        var checkedCheckboxes = $('input:checked', this);
+        
+        if (checkboxes.length === checkedCheckboxes.length) {
+            window.location.href = 'rotem2.html'; // Redirect to rotem2.html
+        } else {
             alert('Sem condições para avançar neste algoritmo!');
-            return false;
-   }
+        }
+    });
 });
 </script>
-
 
 </body>
 </html>
