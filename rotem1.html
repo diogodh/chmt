@@ -54,7 +54,9 @@
                                 <label class="cursor-pointer d-block custom-control-label" for="customCheck5">Hb ≥ 7 g/dL</label>
                             </div>
                         </li>
-			<button id="submitBtn" type="button" class="btn btn-info">Continuar</button>
+			<button id="submitBtn" type="button" class="btn btn-info">Continuar2</button>
+			<input id="submit" type="submit" class="btn btn-info" value="Continuar1">
+
                     </ul>
                 </div>  			
             </div>
@@ -69,7 +71,7 @@ $(document).ready(function() {
         var checkedCheckboxes = $('input:checked');
         
         if (checkboxes.length === checkedCheckboxes.length) {
-            window.location.href = 'rotem2.html'; // Redirect to rotem2.html
+            window.location.href = 'rotem2.html'; // Redirect to rotem2.html ATX
         } else {
             alert('Sem condições para avançar neste algoritmo!');
         }
