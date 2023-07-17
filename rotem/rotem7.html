@@ -41,10 +41,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function calculateDose() {
-        var dose2 = (((12 - $("#a5").val()) * 6.25 * $("#peso").val()) / 1000);
-        var dose = Math.round(dose2);
-        $(".dose").text(dose);
-    }
+    var dose2 = (((12 - $("#a5").val()) * 6.25 * $("#peso").val()) / 1000);
+    var dose = dose2.toFixed(1); // Round to 1 decimal place
+    $(".dose").text(dose);
+	}
 
     $("#a5, #peso").on('keyup', calculateDose);
 </script>
