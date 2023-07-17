@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Protocolo ROTEM</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Protocolo ROTEM</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -12,47 +12,39 @@
     <div class="container pt-2">
         <header>
             <h1 class="display-4">Protocolo ROTEM</h1>
-			<div class="card bg-danger">  
+            <div class="card bg-danger">  
                 <div class="card-body text-center text-white">  
                     <h5 class="text-center"><p></p>Insira os valores CT<sub>IN</sub> e CT<sub>HEP</sub></h5>
                 </div>  
             </div>  
-		
-			  <!-- Material input -->
-			  <div class="md-form form-group mt-2">
-				<input type="number" class="form-control" id="one" placeholder="CT-IN">
-			  </div>
-			  <!-- Material input -->
-			  <div class="md-form form-group mt-2">
-				<input type="number" class="form-control" id="two" placeholder="CT-HEP">
-			  </div>
-			  <input id="submit" type="button" class="btn btn-info" value="Continuar">  
+            <!-- Material input -->
+            <div class="md-form form-group mt-2">
+                <input type="number" class="form-control" id="one" placeholder="CT-IN">
+            </div>
+            <!-- Material input -->
+            <div class="md-form form-group mt-2">
+                <input type="number" class="form-control" id="two" placeholder="CT-HEP">
+            </div>
+            <input id="submit" type="button" class="btn btn-info" value="Continuar">  
         </header>
-		
     </div>
 </section>
 
 <script>
-
 $(document).ready(function(){
     $("#submit").on("click", function(){
-    var a = parseInt($('#one').val());
-    var b = parseInt($('#two').val());
-    var res = a / b;
+        var a = parseInt($('#one').val());
+        var b = parseInt($('#two').val());
+        var res = a / b;
 
-	if (res < 1.25) {
-		window.location.replace("rotem15.html"); // fim de linha, plaq
-	} else {
-		window.location.replace("rotem16.html"); // fim de linha, plaq
-	}
-
-	})
+        if (res < 1.25) {
+            window.location.href = "rotem15.html"; // fim de linha, plaq
+        } else {
+            window.location.href = "rotem16.html"; // fim de linha, plaq
+        }
+    })
 })
-
 </script>
-
-
-
 
 </body>
 </html>

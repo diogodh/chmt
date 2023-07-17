@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Protocolo ROTEM</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Protocolo ROTEM</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     </div>
 </section>
 
-<form id="form1" method="post">
+<form id="form1">
 
 <section>
     <div class="container">
@@ -39,9 +39,9 @@
                                 <label class="cursor-pointer d-block custom-control-label" for="customCheck2">A5<sub>FIB</sub> &lt; 9 mm</label>
                             </div>
                         </li>
-						<input id="submit" type="submit" class="btn btn-info" value="Continuar">
+                        <button id="submitBtn" type="button" class="btn btn-info">Continuar</button>
                     </ul>
-                </div>  			
+                </div>
             </div>
         </div>
     </div>
@@ -49,12 +49,15 @@
 </form>
 
 <script>
-$('#form1').submit(function() {
-	if ($('input:checkbox', this).length == $('input:checked', this).length ) {
-			$('#form1').attr('action', 'rotem7.html'); // fim de linha, faz criop ou aconcetr fib
-   } else {
-			$('#form1').attr('action', 'rotem8.html');
-   }
+$('#submitBtn').click(function() {
+    var checkboxes = $('input:checkbox');
+    var checkedCheckboxes = $('input:checked');
+
+    if (checkboxes.length === checkedCheckboxes.length) {
+        window.location.href = 'rotem7.html'; // fim de linha, faz criop ou aconcetr fib
+    } else {
+        window.location.href = 'rotem8.html';
+    }
 });
 </script>
 

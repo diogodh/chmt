@@ -1,254 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Protocolo ROTEM</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo ROTEM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-
 <body>
+
 <section class="py-2 header text-center text-black">
     <div class="container pt-2">
         <header>
             <h1 class="display-4">Protocolo ROTEM</h1>
-			<div class="card bg-danger">  
-                <div class="card-body text-center text-white">  
-                    <h5 class="text-center"><p></p>Administrar <b>Crioprecipitado</b><p></p>ou</p>	
-					Concentrado de <b>Fibrinogénio</b></h5>
-                </div>  
-            </div>  
-			<p></p><b>Dose a administrar de Concentrado de Fibriongénio:</b>
-	
-			  <!-- Material input -->
-			  <div class="md-form form-group mt-2">
-				<input type="number" class="form-control" id="peso" placeholder="Peso (Kg)">
-			  </div>
-			  <!-- Material input -->
-			  <div class="md-form form-group mt-2">
-				<input type="number" class="form-control" id="a5" placeholder="A5 em FIBTEM">
-			  </div>
-			  <div class="card bg-light">  
-			  <p> </p><p><b>Dose: </b> <span class="dose"></span> gramas</p>
-			  </div>
-			  
+            <div class="card bg-danger">
+                <div class="card-body text-center text-white">
+                    <h5 class="text-center">Administrar <b>Crioprecipitado</b> ou Concentrado de <b>Fibrinogénio</b></h5>
+                </div>
+            </div>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <b>Dose a administrar de Concentrado de Fibrinogénio:</b>
+                    <!-- Material input -->
+                    <div class="md-form form-group mt-2">
+                        <input type="number" class="form-control" id="peso" placeholder="Peso (Kg)">
+                    </div>
+                    <!-- Material input -->
+                    <div class="md-form form-group mt-2">
+                        <input type="number" class="form-control" id="a5" placeholder="A5 em FIBTEM">
+                    </div>
+                    <p><b>Dose:</b> <span class="dose"></span> gramas</p>
+                </div>
+            </div>
         </header>
-		
     </div>
-	<div class="text-center"> 
-		<img src="conc_fib.png" alt="fibrinogenio">
-		</div>
+    <div class="text-center">
+        <img src="conc_fib.png" alt="fibrinogenio">
+    </div>
 </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-$("#a5").on('keyup',function(){
-        var dose2 = (((12 -  $("#a5").val()) * 6.25 * $("#peso").val() ) / 1000 )
-		var dose = Math.round(dose2)
-        $(".dose").html(dose);
-})
+    function calculateDose() {
+        var dose2 = (((12 - $("#a5").val()) * 6.25 * $("#peso").val()) / 1000);
+        var dose = Math.round(dose2);
+        $(".dose").text(dose);
+    }
+
+    $("#a5, #peso").on('keyup', calculateDose);
 </script>
-
-<script>
-$("#peso").on('keyup',function(){
-        var dose2 = (((12 -  $("#a5").val()) * 6.25 * $("#peso").val() ) / 1000 )
-		var dose = Math.round(dose2)
-        $(".dose").html(dose);
-})
-</script>
-
-
-
-<!--
-<table class="table table-striped text-center">
-  <thead>
-    <tr>
-      <th scope="col">Valor de A5 em FIBTEM</th>
-      <th scope="col">Dose de Contentrado de Fibrinogénio</th>
-      <th scope="col">30 Kg</th>
-	  <th scope="col">40 Kg</th>
-	  <th scope="col">50 Kg</th>
-	  <th scope="col">60 Kg</th>
-	  <th scope="col">70 Kg</th>
-	  <th scope="col">80 Kg</th>
-	  <th scope="col">90 Kg</th>
-	  <th scope="col">100 Kg</th>
-	  <th scope="col">110 Kg</th>
-	  <th scope="col">120 Kg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">0</th>
-      <td>75 mg/Kg</td>
-      <td>2g</td>
-	  <td>3g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>68.75 mg/Kg</td>
-      <td>2g</td>
-	  <td>3g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">2</th>
-      <td>62.5 mg/Kg</td>
-      <td>2g</td>
-	  <td>3g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">3</th>
-      <td>56.25 mg/Kg</td>
-      <td>2g</td>
-	  <td>2g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">4</th>
-      <td>50 mg/Kg</td>
-      <td>2g</td>
-	  <td>2g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">5</th>
-      <td>43.75 mg/Kg</td>
-      <td>2g</td>
-	  <td>2g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">6</th>
-      <td>37.5 mg/Kg</td>
-      <td>2g</td>
-	  <td>2g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">7</th>
-      <td>31.25 mg/Kg</td>
-      <td>1g</td>
-	  <td>1g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">8</th>
-      <td>25 mg/Kg</td>
-      <td>1g</td>
-	  <td>1g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">9</th>
-      <td>18.75 mg/Kg</td>
-      <td>1g</td>
-	  <td>1g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">10</th>
-      <td>12.5 mg/Kg</td>
-      <td></td>
-	  <td>0.5 - 1g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	<tr>
-      <th scope="row">11</th>
-      <td>6.25 mg/Kg</td>
-      <td></td>
-	  <td>0.5 - 1g</td>
-	  <td>4g</td>
-	  <td>5g</td>
-	  <td>6g</td>
-	  <td>6g</td>
-	  <td>7g</td>
-	  <td>8g</td>
-	  <td>9g</td>
-	  <td>9g</td>
-    </tr>
-	
-  </tbody>
-</table> -->
-
 
 </body>
 </html>
