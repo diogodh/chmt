@@ -1,10 +1,3 @@
-<!--
-                                <label class="cursor-pointer d-block custom-control-label" for="customCheck2">A5<sub>FIB</sub> &ge; 9 mm</label>
-                            </div>
-                        </li>
-						<input id="submit" type="submit" class="btn btn-info" value="Continuar">
-                    </ul>
-                </div>  		-->	
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +40,7 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <button id="submit" type="button" class="btn btn-info">Continuar</button>
+							<button id="submitBtn" type="button" class="btn btn-info">Continuar</button>
                         </li>
                     </ul>
                 </div>              
@@ -59,7 +52,7 @@
 
 <script>
 $(document).ready(function() {
-    $("#submit").on("click", function() {
+    $("#submitBtn").on("click", function() {
         var checkboxes = $('input:checkbox');
         var checkedCheckboxes = $('input:checked');
 
